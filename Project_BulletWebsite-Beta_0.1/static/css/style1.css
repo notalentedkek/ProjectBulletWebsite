@@ -1,0 +1,11 @@
+.hover-glow:hover {
+  box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700 inset;
+  transform: scale(1.05);
+  cursor: pointer; 
+}
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+html {
+  scroll-behavior: smooth;
+}

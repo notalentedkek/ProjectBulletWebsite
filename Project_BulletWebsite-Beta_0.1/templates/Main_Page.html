@@ -1,0 +1,1257 @@
+{% extends 'base.html' %}
+
+{% block title %}Project Bullet - Главная страница{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Hero секция -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Project_Bullet</h1>
+            <p class="hero-subtitle">Сможешь ли ты добраться до конца и стать защитником?</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('Download') }}" class="btn-download">
+                    <i class="fas fa-download"></i> Скачать игру
+                </a>
+                <a href="{{ url_for('About') }}" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Узнать больше
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="bullet-hero"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Особенности игры -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2 class="section-title">Особенности игры</h2>
+        <p class="section-subtitle">Что делает Project Bullet уникальным?</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Система улучшений</h3>
+                <p class="feature-description">Становись сильнее и быстрее с каждой победой. Прокачивай своего персонажа и открывай новые способности.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <h3 class="feature-title">Сложные противники</h3>
+                <p class="feature-description">Враги становятся умнее и быстрее с каждым уровнем. Будь готов к настоящему испытанию!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Спаси мир</h3>
+                <p class="feature-description">Почувствуй себя настоящим защитником и спаси миры от угрозы, которая скрывается в тени.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">Локальный мультиплеер</h3>
+                <p class="feature-description">Сражайся вместе с друзьями в кооперативном режиме. Вместе вы непобедимы!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="feature-title">Поддержка модов</h3>
+                <p class="feature-description">Создавай своих персонажей, врагов и уровни. Игра ограничена только твоей фантазией!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="feature-title">Эпический саундтрек</h3>
+                <p class="feature-description">Погрузись в атмосферу игры с уникальным музыкальным сопровождением.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Скриншоты игры -->
+<section class="screenshots-section">
+    <div class="container">
+        <h2 class="section-title">Галактика Project Bullet</h2>
+        <p class="section-subtitle">Исследуйте миры нашей игры</p>
+        
+        <div class="solar-system">
+            <!-- Центральная звезда -->
+            <div class="central-star">
+                <div class="star-core"></div>
+                <div class="star-glow"></div>
+            </div>
+            
+            <!-- Планета 1 -->
+            <div class="planet-orbit orbit-1">
+                <div class="planet planet-1">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface">
+                        <img src="{{ url_for('static', filename='images/screenshots/screenshot1.jpg') }}" 
+                             alt="Скриншот 1"
+                             onerror="this.onerror=null; this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Планета 2 -->
+            <div class="planet-orbit orbit-2">
+                <div class="planet planet-2">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface">
+                         <img src="{{ url_for('static', filename='images/screenshots/screenshot2.jpg') }}" 
+                             alt="Скриншот 2"
+                             onerror="this.onerror=null; this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Планета 3 -->
+            <div class="planet-orbit orbit-3">
+                <div class="planet planet-3">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface">
+                         <img src="{{ url_for('static', filename='images/screenshots/screenshot3.jpg') }}" 
+                             alt="Скриншот 3"
+                             onerror="this.onerror=null; this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Планета 4 -->
+            <div class="planet-orbit orbit-4">
+                <div class="planet planet-4">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface">
+                         <img src="{{ url_for('static', filename='images/screenshots/screenshot4.jpg') }}" 
+                             alt="Скриншот 4"
+                             onerror="this.onerror=null; this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+<!-- Вдохновение Touhou -->
+<section class="touhou-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="touhou-visual">
+                    <div class="spell-card"></div>
+                    <div class="danmaku-pattern"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Вдохновение Touhou Project</h2>
+                <p class="lead">Project Bullet черпает вдохновение из культовой серии Touhou Project, перенимая лучшие элементы жанра Bullet Hell.</p>
+                <p>Динамичные сражения, красивые спелл-карты и запоминающиеся боссы - всё это ждёт вас в нашей игре!</p>
+                <div class="touhou-features">
+                    <div class="touhou-feature">
+                        <i class="fas fa-star"></i>
+                        <span>Красивые паттерны пуль</span>
+                    </div>
+                    <div class="touhou-feature">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Точное управление</span>
+                    </div>
+                    <div class="touhou-feature">
+                        <i class="fas fa-ghost"></i>
+                        <span>Уникальные боссы</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Open Source секция -->
+<section class="opensource-section">
+    <div class="container">
+        <div class="opensource-header">
+            <i class="fab fa-github fa-3x mb-3"></i>
+            <h2 class="section-title">Проект с открытым исходным кодом</h2>
+        </div>
+        <p class="opensource-description">
+            Project Bullet полностью открыт для всеx желающиx. Вы можете изучать код, вносить изменения, 
+            создавать моды или просто учиться на примере нашей реализации.
+        </p>
+        <div class="opensource-actions">
+            <a href="https://github.com/JustANormalThing/Project_Bullet" target="_blank" class="btn-github">
+                <i class="fab fa-github"></i> Исходный код на GitHub
+            </a>
+            <a href="{{ url_for('Contact') }}" class="btn-contribute">
+                <i class="fas fa-hands-helping"></i> Внести свой вклад
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Призыв к действию -->
+<section class="cta-section">
+    <div class="container text-center">
+        <h2 class="cta-title">Ты увидишь всё в правде!</h2>
+        <p class="cta-description">Мир иллюзий и надежды, но также и безумия. Готов ли ты к испытанию?</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('Download') }}" class="btn-cta-primary">
+                <i class="fas fa-play-circle"></i> Начать игру
+            </a>
+            <a href="{{ url_for('About') }}" class="btn-cta-secondary">
+                <i class="fas fa-book"></i> Читать историю
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Стили для главной страницы */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, 
+        rgba(15, 12, 41, 0.95) 0%, 
+        rgba(48, 43, 99, 0.85) 50%, 
+        rgba(36, 36, 62, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="%236c63ff" opacity="0.1" d="M0,500Q250,400,500,500T1000,500V1000H0Z"/></svg>');
+    background-size: cover;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 50px;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff6584, #6c63ff, #36d1dc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.btn-download:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(108, 99, 255, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    animation: fadeInRight 1s ease-out;
+}
+
+.bullet-hero {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.3), transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+}
+
+.bullet-hero:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 0deg, #ff6584, #6c63ff, #36d1dc, #ff6584);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Особенности игры */
+.features-section {
+    padding: 100px 0;
+    background: rgba(15, 12, 41, 0.8);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--light-color);
+    position: relative;
+    display: block;
+    width: 100%;
+    left: 0;
+    transform: none;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+.feature-title {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Секция скриншотов - Солнечная система (УВЕЛИЧЕНА) */
+.screenshots-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, 
+        rgba(15, 12, 41, 0.95),
+        rgba(10, 8, 28, 0.98));
+    overflow: hidden;
+    position: relative;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+.solar-system {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Центральная звезда (увеличена) */
+.central-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+}
+
+.star-core {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffaa00, #ff5500);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 50px #ff5500,
+        0 0 80px rgba(255, 85, 0, 0.6);
+    animation: starPulse 3s ease-in-out infinite;
+}
+
+.star-glow {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 170, 0, 0.3), transparent 70%);
+    border-radius: 50%;
+}
+
+/* Орбиты планет (увеличены) */
+.planet-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px dashed rgba(108, 99, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    width: 300px;
+    height: 300px;
+    animation: orbitRotate 20s linear infinite;
+}
+
+.orbit-2 {
+    width: 420px;
+    height: 420px;
+    animation: orbitRotate 25s linear infinite reverse;
+}
+
+.orbit-3 {
+    width: 540px;
+    height: 540px;
+    animation: orbitRotate 30s linear infinite;
+}
+
+.orbit-4 {
+    width: 660px;
+    height: 660px;
+    animation: orbitRotate 35s linear infinite reverse;
+}
+
+/* Планеты (увеличены) */
+.planet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    z-index: 3;
+    cursor: default !important; /* Изменено с pointer на default */
+    transition: all 0.3s ease !important;
+}
+
+.planet-1 {
+    width: 120px;
+    height: 120px;
+    top: -60px;
+}
+
+.planet-2 {
+    width: 110px;
+    height: 110px;
+    top: -55px;
+}
+
+.planet-3 {
+    width: 130px;
+    height: 130px;
+    top: -65px;
+}
+
+.planet-4 {
+    width: 115px;
+    height: 115px;
+    top: -57.5px;
+}
+
+.planet-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(108, 99, 255, 0.4),
+        rgba(54, 209, 220, 0.3) 30%,
+        transparent 70%);
+    border-radius: 50%;
+    filter: blur(15px);
+    animation: planetGlow 2s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.planet-surface {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(15, 12, 41, 0.9), rgba(48, 43, 99, 0.8));
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(108, 99, 255, 0.7),
+        0 0 70px rgba(108, 99, 255, 0.4);
+    z-index: 2;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.planet-surface img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: brightness(0.85) contrast(1.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* ФИКС: ОДИНАКОВЫЙ ЭФФЕКТ ДЛЯ ВСЕХ ПЛАНЕТ */
+.planet:hover {
+    z-index: 1000 !important;
+}
+
+.planet:hover .planet-surface {
+    transform: scale(1.3) !important;
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(108, 99, 255, 0.9),
+        0 0 100px rgba(108, 99, 255, 0.6) !important;
+}
+
+.planet:hover .planet-surface img {
+    filter: brightness(1.1) contrast(1.2) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Анимации для солнечной системы */
+@keyframes starPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 50px #ff5500,
+            0 0 80px rgba(255, 85, 0, 0.6);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 
+            0 0 60px #ff5500,
+            0 0 100px rgba(255, 85, 0, 0.7);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes planetGlow {
+    from {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+}
+
+/* Touhou секция */
+.touhou-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(255, 101, 132, 0.1), rgba(108, 99, 255, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.touhou-visual {
+    position: relative;
+    height: 400px;
+}
+
+.spell-card {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(45deg, rgba(255, 101, 132, 0.2), rgba(108, 99, 255, 0.2));
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    border: 2px solid rgba(255, 101, 132, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 101, 132, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.danmaku-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 101, 132, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(108, 99, 255, 0.2) 3px, transparent 3px),
+        radial-gradient(circle at 40% 60%, rgba(54, 209, 220, 0.2) 4px, transparent 4px);
+    background-size: 50px 50px;
+    animation: patternMove 20s linear infinite;
+}
+
+.touhou-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.touhou-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.touhou-feature i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+/* Open Source секция */
+.opensource-section {
+    padding: 100px 0;
+    background: rgba(15, 12, 41, 0.9);
+    text-align: center;
+}
+
+.opensource-header i {
+    color: var(--primary-color);
+}
+
+.opensource-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+.opensource-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-github {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-github:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.btn-contribute {
+    background: linear-gradient(135deg, var(--secondary-color), #ff416c);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-contribute:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 101, 132, 0.4);
+}
+
+/* CTA секция */
+.cta-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 65, 108, 0.9),
+        rgba(255, 75, 43, 0.9)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/></pattern><rect width="1000" height="1000" fill="url(%23pattern)"/></svg>');
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-title {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-description {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+    background: white;
+    color: #ff416c;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cta-primary:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+    color: #ff416c;
+}
+
+.btn-cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Анимации */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes patternMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 50px 50px;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    50% {
+        transform: translate(-50%, -55%) rotate(-5deg);
+    }
+}
+
+/* Анимация частиц */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: particleMove linear infinite;
+}
+
+.particle:nth-child(1) {
+    width: 5px;
+    height: 5px;
+    top: 20%;
+    left: 30%;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    top: 60%;
+    left: 70%;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+    width: 4px;
+    height: 4px;
+    top: 40%;
+    left: 10%;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(4) {
+    width: 6px;
+    height: 6px;
+    top: 80%;
+    left: 40%;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(5) {
+    width: 7px;
+    height: 7px;
+    top: 30%;
+    left: 80%;
+    animation-duration: 25s;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100px);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .solar-system {
+        height: 600px;
+        max-width: 800px;
+    }
+    
+    .orbit-1 { width: 250px; height: 250px; }
+    .orbit-2 { width: 350px; height: 350px; }
+    .orbit-3 { width: 450px; height: 450px; }
+    .orbit-4 { width: 550px; height: 550px; }
+    
+    .planet {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .planet-1 { width: 100px; height: 100px; top: -50px; }
+    .planet-2 { width: 90px; height: 90px; top: -45px; }
+    .planet-3 { width: 110px; height: 110px; top: -55px; }
+    .planet-4 { width: 95px; height: 95px; top: -47.5px; }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-visual {
+        height: 300px;
+    }
+    
+    .screenshots-section {
+        min-height: 700px;
+        padding: 100px 0;
+    }
+    
+    .solar-system {
+        height: 500px;
+        max-width: 700px;
+    }
+    
+    .orbit-1 { width: 200px; height: 200px; }
+    .orbit-2 { width: 280px; height: 280px; }
+    .orbit-3 { width: 360px; height: 360px; }
+    .orbit-4 { width: 440px; height: 440px; }
+    
+    .planet {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .planet-1 { width: 80px; height: 80px; top: -40px; }
+    .planet-2 { width: 70px; height: 70px; top: -35px; }
+    .planet-3 { width: 90px; height: 90px; top: -45px; }
+    .planet-4 { width: 75px; height: 75px; top: -37.5px; }
+    
+    .central-star {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons,
+    .cta-buttons,
+    .opensource-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-download,
+    .btn-secondary,
+    .btn-cta-primary,
+    .btn-cta-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .screenshots-section {
+        min-height: 600px;
+        padding: 80px 0;
+    }
+    
+    .solar-system {
+        height: 400px;
+        max-width: 600px;
+    }
+    
+    .orbit-1 { width: 160px; height: 160px; }
+    .orbit-2 { width: 220px; height: 220px; }
+    .orbit-3 { width: 280px; height: 280px; }
+    .orbit-4 { width: 340px; height: 340px; }
+    
+    .planet {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .planet-1 { width: 70px; height: 70px; top: -35px; }
+    .planet-2 { width: 60px; height: 60px; top: -30px; }
+    .planet-3 { width: 80px; height: 80px; top: -40px; }
+    .planet-4 { width: 65px; height: 65px; top: -32.5px; }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .screenshots-section {
+        min-height: 500px;
+        padding: 60px 0;
+    }
+    
+    .solar-system {
+        height: 350px;
+        max-width: 500px;
+    }
+    
+    .orbit-1 { width: 120px; height: 120px; }
+    .orbit-2 { width: 180px; height: 180px; }
+    .orbit-3 { width: 240px; height: 240px; }
+    .orbit-4 { width: 300px; height: 300px; }
+    
+    .planet {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .planet-1 { width: 60px; height: 60px; top: -30px; }
+    .planet-2 { width: 50px; height: 50px; top: -25px; }
+    .planet-3 { width: 70px; height: 70px; top: -35px; }
+    .planet-4 { width: 55px; height: 55px; top: -27.5px; }
+    
+    .central-star {
+        width: 50px;
+        height: 50px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Убираем курсор pointer и кликабельность планет
+    const planets = document.querySelectorAll('.planet');
+    
+    planets.forEach(planet => {
+        // Устанавливаем обычный курсор
+        planet.style.cursor = 'default';
+        
+        // Убираем все обработчики событий
+        planet.onclick = null;
+        planet.onmouseenter = null;
+        planet.onmouseleave = null;
+    });
+    
+    // Остальной код без изменений
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const featuresSection = document.getElementById('features');
+            if (featuresSection) {
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                if (entry.target.classList.contains('planet-orbit') || 
+                    entry.target.classList.contains('planet')) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            } else {
+                if (entry.target.classList.contains('planet-orbit') || 
+                    entry.target.classList.contains('planet')) {
+                    entry.target.style.animationPlayState = 'paused';
+                }
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.feature-card, .touhou-visual, .opensource-header, .cta-content, .planet-orbit, .planet').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+    });
+    
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach(particle => {
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+    });
+});
+</script>
+{% endblock %}

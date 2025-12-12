@@ -1,0 +1,541 @@
+{% extends 'base.html' %}
+
+{% block title %} О нас - Project Bullet {% endblock %}
+
+{% block content %}
+<!-- 3D Canvas -->
+<div class="canvas-container" id="threeCanvas"></div>
+
+<!-- Плавающие объекты для фона -->
+<div class="floating-objects">
+    <div class="floating-object"></div>
+    <div class="floating-object"></div>
+    <div class="floating-object"></div>
+    <div class="floating-object"></div>
+</div>
+
+<h1>О нас и нашем проекте!</h1>
+
+<div class="about-section">
+    <p>Мы занимаемся разработкой игр в разных жанрах. Наш новый релиз - игра в жанре Bullet Hell, которая поразит вас своим геймплеем и визуальным стилем!</p>
+</div>
+    
+<div class="about-section">
+    <h2 style="text-align:center">Project_Bullet - игра в жанре Bullet Hell</h2>
+    <h3 style="text-align:center">Что вас ждёт в этой игре?</h3>
+    <h3 style="text-align:center; margin-bottom: 30px;">Сейчас мы перечислим все достоинства нашего проекта</h3>
+    
+    <ul class="feature-list">
+        <li>Игра в жанре Bullet Hell с динамичным геймплеем!</li>
+        <li>Десятки уровней и орды врагов: Каждый уровень сложнее предыдущего, а враги умнее и злее!</li>
+        <li>Настоящая пиксельная графика в современном стиле!</li>
+        <li>Глубокая система улучшений и прокачки персонажа!</li>
+        <li>Локальный мультиплеер для игры с друзьями!</li>
+        <li>Поддержка модов: Хочешь новых героев, врагов и уровней? Вся игра в твоих руках!</li>
+        <li>Эпический саундтрек!</li>
+    </ul>
+    
+    <div class="explore-more">
+        <p>Хотите скачать игру или узнать больше о её функциях?</p>
+        <a href="{{ url_for('Download') }}" class="explore-btn">
+            <i class="fas fa-download"></i> Перейти к скачиванию
+        </a>
+    </div>
+</div>
+
+<div class="team-section">
+    <h2 style="text-align:center">Наша команда</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="https://static.tildacdn.ink/tild3334-3164-4338-a539-656535613935/photo_2025-11-12_10-.jpg" alt="Сервер">
+                <div class="container">
+                    <h2>Сервер Ягьяев</h2>
+                    <p class="title">Основатель/Программист</p>
+                    <p>Специализируется на разработке модификаций и логике игры..</p>
+                    <p>Yagyaev.s.i.22@gmail.com</p>
+                    <p><button class="button">Связаться</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://static.tildacdn.ink/tild6263-3032-4664-b432-346139336230/photo_2025-11-12_21-.jpg" alt="Данил">
+                <div class="container">
+                    <h2>Данил Проxорчик</h2>
+                    <p class="title">Программист/дизайнер уровней</p>
+                    <p>Специализируется на разработке искусственного интеллекта персонажей игры и визуальной составляющей наших продуктов.</p>
+                    <p>foxerzzxgod@gmail.com</p>
+                    <p><button class="button">Связаться</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://static.tildacdn.ink/tild3165-3337-4463-a662-343636613161/photo_2025-11-12_21-.jpg" alt="Мамут">
+                <div class="container">
+                    <h2>Арап Мамут</h2>
+                    <p class="title">Программист/маркетолог</p>
+                    <p>Специализируется на разработке пользовательского интерфейса и продвижении наших продуктов.</p>
+                    <p>arap.m.i.22@gmail.com</p>
+                    <p><button class="button">Связаться</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Базовые стили для About страницы */
+.about-section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 60px auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+/* Стили для списка преимуществ */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.feature-list li {
+    padding: 15px 0 15px 50px;
+    margin: 15px 0;
+    position: relative;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #6c63ff, #36d1dc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.feature-list li:hover {
+    transform: translateX(10px);
+    color: #36d1dc;
+}
+
+/* Кнопка для перехода к скачиванию */
+.explore-more {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explore-more p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.explore-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #6c63ff, #36d1dc);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+}
+
+.explore-btn:hover {
+    background: transparent;
+    border-color: #6c63ff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
+}
+
+.explore-btn i {
+    margin-right: 10px;
+}
+
+/* Команда */
+.team-section {
+    margin: 80px auto;
+    max-width: 1200px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    filter: grayscale(30%);
+}
+
+.card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.container {
+    padding: 25px;
+    text-align: center;
+}
+
+.title {
+    color: #36d1dc;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.button {
+    background: transparent;
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-top: 15px;
+}
+
+.button:hover {
+    background: #6c63ff;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+/* 3D объекты */
+.canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.floating-objects {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.floating-object {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background: rgba(108, 99, 255, 0.1);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    animation: float 20s infinite linear;
+}
+
+.floating-object:nth-child(2) {
+    top: 20%;
+    left: 10%;
+    width: 120px;
+    height: 120px;
+    animation-delay: -5s;
+    animation-duration: 25s;
+    background: rgba(255, 101, 132, 0.1);
+    border-color: rgba(255, 101, 132, 0.2);
+}
+
+.floating-object:nth-child(3) {
+    top: 60%;
+    left: 80%;
+    width: 80px;
+    height: 80px;
+    animation-delay: -10s;
+    animation-duration: 30s;
+    background: rgba(54, 209, 220, 0.1);
+    border-color: rgba(54, 209, 220, 0.2);
+}
+
+.floating-object:nth-child(4) {
+    top: 80%;
+    left: 20%;
+    width: 150px;
+    height: 150px;
+    animation-delay: -15s;
+    animation-duration: 35s;
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-50px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(0) rotate(180deg);
+    }
+    75% {
+        transform: translateY(50px) rotate(270deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .about-section {
+        padding: 25px;
+        margin: 30px 15px;
+    }
+    
+    .feature-list li {
+        font-size: 1rem;
+        padding: 12px 0 12px 40px;
+    }
+    
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .column {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .floating-object {
+        display: none;
+    }
+    
+    .explore-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .explore-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Простой 3D фон с использованием Three.js
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('threeCanvas');
+    
+    // Если контейнер существует и Three.js доступен
+    if (container && typeof THREE !== 'undefined') {
+        try {
+            // Создание сцены, камеры и рендерера
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+            
+            // Добавление света
+            const ambientLight = new THREE.AmbientLight(0x666666);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0x6c63ff, 0.5);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            
+            // Создание частиц для фона
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 5000;
+            
+            const posArray = new Float32Array(particlesCount * 3);
+            const colorArray = new Float32Array(particlesCount * 3);
+            
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 50;
+                
+                // Случайные цвета с акцентами на основные цвета сайта
+                if (i % 3 === 0) colorArray[i] = Math.random() * 0.2 + 0.8; // Красный
+                if (i % 3 === 1) colorArray[i] = Math.random() * 0.2 + 0.4; // Зеленый
+                if (i % 3 === 2) colorArray[i] = Math.random() * 0.5 + 0.5; // Синий
+            }
+            
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+            
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                transparent: true,
+                vertexColors: true,
+                blending: THREE.AdditiveBlending
+            });
+            
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+            
+            camera.position.z = 10;
+            
+            // Анимация
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                particlesMesh.rotation.x += 0.0005;
+                particlesMesh.rotation.y += 0.001;
+                
+                renderer.render(scene, camera);
+            }
+            
+            // Обработка изменения размера окна
+            window.addEventListener('resize', function() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+            animate();
+        } catch (error) {
+            console.log('Three.js не удалось инициализировать:', error);
+        }
+    }
+    
+    // Плавная анимация при прокрутке
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Наблюдение за элементами для анимации при прокрутке
+    document.querySelectorAll('.about-section, .card').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+    });
+});
+</script>
+{% endblock %}

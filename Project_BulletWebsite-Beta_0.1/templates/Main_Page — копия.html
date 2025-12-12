@@ -1,0 +1,1140 @@
+{% extends 'base.html' %}
+
+{% block title %}Project Bullet - Главная страница{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Hero секция -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Project_Bullet</h1>
+            <p class="hero-subtitle">Сможешь ли ты добраться до конца и стать защитником?</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/sdmgames/7" class="btn-download">
+                    <i class="fas fa-download"></i> Скачать игру
+                </a>
+                <a href="{{ url_for('About') }}" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Узнать больше
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="bullet-hero"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Особенности игры -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2 class="section-title">Особенности игры</h2>
+        <p class="section-subtitle">Что делает Project Bullet уникальным?</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Система улучшений</h3>
+                <p class="feature-description">Становись сильнее и быстрее с каждой победой. Прокачивай своего персонажа и открывай новые способности.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <h3 class="feature-title">Сложные противники</h3>
+                <p class="feature-description">Враги становятся умнее и быстрее с каждым уровнем. Будь готов к настоящему испытанию!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Спаси мир</h3>
+                <p class="feature-description">Почувствуй себя настоящим защитником и спаси миры от угрозы, которая скрывается в тени.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">Локальный мультиплеер</h3>
+                <p class="feature-description">Сражайся вместе с друзьями в кооперативном режиме. Вместе вы непобедимы!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="feature-title">Поддержка модов</h3>
+                <p class="feature-description">Создавай своих персонажей, врагов и уровни. Игра ограничена только твоей фантазией!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="feature-title">Эпический саундтрек</h3>
+                <p class="feature-description">Погрузись в атмосферу игры с уникальным музыкальным сопровождением.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Скриншоты игры -->
+<section class="screenshots-section">
+    <div class="container">
+        <h2 class="section-title">Скриншоты игры</h2>
+        <p class="section-subtitle">Взгляните на захватывающие моменты из Project Bullet</p>
+        
+        <div class="screenshots-grid">
+            <div class="monitor-frame" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                <div class="monitor">
+                    <div class="monitor-screen">
+                        <div class="screen-content">
+                            <img src="{{ url_for('static', filename='images/screenshots/screenshot1.jpg') }}" 
+                                 alt="Скриншот игры Project Bullet 1"
+                                 onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+            
+            <div class="monitor-frame" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                <div class="monitor">
+                    <div class="monitor-screen">
+                        <div class="screen-content">
+                            <img src="{{ url_for('static', filename='images/screenshots/screenshot2.jpg') }}" 
+                                 alt="Скриншот игры Project Bullet 2"
+                                 onerror="this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+            
+            <div class="monitor-frame" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                <div class="monitor">
+                    <div class="monitor-screen">
+                        <div class="screen-content">
+                            <img src="{{ url_for('static', filename='images/screenshots/screenshot3.jpg') }}" 
+                                 alt="Скриншот игры Project Bullet 3"
+                                 onerror="this.src='https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+            
+            <div class="monitor-frame" data-tilt data-tilt-max="15" data-tilt-speed="400">
+                <div class="monitor">
+                    <div class="monitor-screen">
+                        <div class="screen-content">
+                            <img src="{{ url_for('static', filename='images/screenshots/screenshot4.jpg') }}" 
+                                 alt="Скриншот игры Project Bullet 4"
+                                 onerror="this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                    <div class="monitor-base"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Вдохновение Touhou -->
+<section class="touhou-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="touhou-visual">
+                    <div class="spell-card"></div>
+                    <div class="danmaku-pattern"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Вдохновение Touhou Project</h2>
+                <p class="lead">Project Bullet черпает вдохновение из культовой серии Touhou Project, перенимая лучшие элементы жанра Bullet Hell.</p>
+                <p>Динамичные сражения, красивые спелл-карты и запоминающиеся боссы - всё это ждёт вас в нашей игре!</p>
+                <div class="touhou-features">
+                    <div class="touhou-feature">
+                        <i class="fas fa-star"></i>
+                        <span>Красивые паттерны пуль</span>
+                    </div>
+                    <div class="touhou-feature">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Точное управление</span>
+                    </div>
+                    <div class="touhou-feature">
+                        <i class="fas fa-ghost"></i>
+                        <span>Уникальные боссы</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Open Source секция -->
+<section class="opensource-section">
+    <div class="container">
+        <div class="opensource-header">
+            <i class="fab fa-github fa-3x mb-3"></i>
+            <h2 class="section-title" style="position: static; left: auto; transform: none;">Проект с открытым исходным кодом</h2>
+        </div>
+        <p class="opensource-description">
+            Project Bullet полностью открыт для всеx желающиx. Вы можете изучать код, вносить изменения, 
+            создавать моды или просто учиться на примере нашей реализации.
+        </p>
+        <div class="opensource-actions">
+            <a href="https://github.com/JustANormalThing/Project_Bullet" target="_blank" class="btn-github">
+                <i class="fab fa-github"></i> Исходный код на GitHub
+            </a>
+            <a href="{{ url_for('Contact') }}" class="btn-contribute">
+                <i class="fas fa-hands-helping"></i> Внести свой вклад
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Призыв к действию -->
+<section class="cta-section">
+    <div class="container text-center">
+        <h2 class="cta-title">Ты увидишь всё в правде!</h2>
+        <p class="cta-description">Мир иллюзий и надежды, но также и безумия. Готов ли ты к испытанию?</p>
+        <div class="cta-buttons">
+            <a href="https://t.me/sdmgames/7" class="btn-cta-primary">
+                <i class="fas fa-play-circle"></i> Начать игру
+            </a>
+            <a href="{{ url_for('About') }}" class="btn-cta-secondary">
+                <i class="fas fa-book"></i> Читать историю
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Стили для главной страницы */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, 
+        rgba(15, 12, 41, 0.95) 0%, 
+        rgba(48, 43, 99, 0.85) 50%, 
+        rgba(36, 36, 62, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path fill="%236c63ff" opacity="0.1" d="M0,500Q250,400,500,500T1000,500V1000H0Z"/></svg>');
+    background-size: cover;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    gap: 50px;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff6584, #6c63ff, #36d1dc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.btn-download:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(108, 99, 255, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    animation: fadeInRight 1s ease-out;
+}
+
+.bullet-hero {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.3), transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+}
+
+.bullet-hero:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 0deg, #ff6584, #6c63ff, #36d1dc, #ff6584);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Особенности игры */
+.features-section {
+    padding: 100px 0;
+    background: rgba(15, 12, 41, 0.8);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--light-color);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Поднял полосочку выше */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+.feature-title {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Секция скриншотов */
+.screenshots-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(36, 36, 62, 0.2));
+    overflow: hidden;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    margin-top: 60px;
+    position: relative;
+}
+
+.monitor-frame {
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.monitor {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+.monitor-screen {
+    position: relative;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 60px rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(108, 99, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(20px);
+}
+
+.monitor-screen:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.1) 0%, 
+        transparent 50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.screen-content {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Соотношение 4:3 */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.screen-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.monitor:hover .screen-content img {
+    transform: scale(1.05);
+}
+
+.monitor-stand {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(to bottom, #333, #222);
+    margin: -5px auto 0;
+    border-radius: 5px 5px 0 0;
+    transform: translateZ(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.monitor-stand:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 10px;
+    background: #222;
+    border-radius: 0 0 5px 5px;
+}
+
+.monitor-base {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(to bottom, #222, #111);
+    margin: 0 auto;
+    border-radius: 10px;
+    transform: translateZ(5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Эффект свечения экрана */
+.monitor-screen:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(108, 99, 255, 0.15) 0%,
+        transparent 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.monitor:hover .monitor-screen:after {
+    opacity: 1;
+}
+
+/* Стили для индикатора монитора */
+.monitor-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    background: #36d1dc;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #36d1dc;
+    animation: monitorGlow 2s infinite alternate;
+    z-index: 3;
+}
+
+@keyframes monitorGlow {
+    0% {
+        box-shadow: 0 0 5px #36d1dc;
+        opacity: 0.7;
+    }
+    100% {
+        box-shadow: 0 0 15px #36d1dc, 0 0 20px #36d1dc;
+        opacity: 1;
+    }
+}
+
+/* Touhou секция */
+.touhou-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(255, 101, 132, 0.1), rgba(108, 99, 255, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.touhou-visual {
+    position: relative;
+    height: 400px;
+}
+
+.spell-card {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(45deg, rgba(255, 101, 132, 0.2), rgba(108, 99, 255, 0.2));
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    border: 2px solid rgba(255, 101, 132, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 101, 132, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.danmaku-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 101, 132, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(108, 99, 255, 0.2) 3px, transparent 3px),
+        radial-gradient(circle at 40% 60%, rgba(54, 209, 220, 0.2) 4px, transparent 4px);
+    background-size: 50px 50px;
+    animation: patternMove 20s linear infinite;
+}
+
+.touhou-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.touhou-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.touhou-feature i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+/* Open Source секция */
+.opensource-section {
+    padding: 100px 0;
+    background: rgba(15, 12, 41, 0.9);
+    text-align: center;
+}
+
+.opensource-header i {
+    color: var(--primary-color);
+}
+
+.opensource-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+.opensource-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-github {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-github:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.btn-contribute {
+    background: linear-gradient(135deg, var(--secondary-color), #ff416c);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-contribute:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 101, 132, 0.4);
+}
+
+/* CTA секция */
+.cta-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 65, 108, 0.9),
+        rgba(255, 75, 43, 0.9)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/></pattern><rect width="1000" height="1000" fill="url(%23pattern)"/></svg>');
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-title {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-description {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+    background: white;
+    color: #ff416c;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cta-primary:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+    color: #ff416c;
+}
+
+.btn-cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+    border: 2px solid white;
+}
+
+.btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Анимации */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes patternMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 50px 50px;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    50% {
+        transform: translate(-50%, -55%) rotate(-5deg);
+    }
+}
+
+@keyframes monitorGlow {
+    0% {
+        box-shadow: 0 0 5px #36d1dc;
+        opacity: 0.7;
+    }
+    100% {
+        box-shadow: 0 0 15px #36d1dc, 0 0 20px #36d1dc;
+        opacity: 1;
+    }
+}
+
+/* Анимация частиц */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: particleMove linear infinite;
+}
+
+.particle:nth-child(1) {
+    width: 5px;
+    height: 5px;
+    top: 20%;
+    left: 30%;
+    animation-duration: 15s;
+}
+
+.particle:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    top: 60%;
+    left: 70%;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(3) {
+    width: 4px;
+    height: 4px;
+    top: 40%;
+    left: 10%;
+    animation-duration: 12s;
+}
+
+.particle:nth-child(4) {
+    width: 6px;
+    height: 6px;
+    top: 80%;
+    left: 40%;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(5) {
+    width: 7px;
+    height: 7px;
+    top: 30%;
+    left: 80%;
+    animation-duration: 25s;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100px);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-visual {
+        height: 300px;
+    }
+    
+    .touhou-visual {
+        height: 300px;
+        margin-bottom: 40px;
+    }
+    
+    .screenshots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons,
+    .cta-buttons,
+    .opensource-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-download,
+    .btn-secondary,
+    .btn-cta-primary,
+    .btn-cta-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+}
+</style>
+
+<!-- Подключаем библиотеку для 3D эффекта наклона -->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Прокрутка к секциям при клике на индикатор
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const featuresSection = document.getElementById('features');
+            if (featuresSection) {
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+    
+    // Анимация появления элементов при скролле
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Добавляем класс для мониторов
+                if (entry.target.classList.contains('monitor-frame')) {
+                    entry.target.classList.add('animated');
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Наблюдение за элементами для анимации
+    document.querySelectorAll('.feature-card, .touhou-visual, .opensource-header, .cta-content, .monitor-frame').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+    });
+    
+    // Анимация частиц
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach(particle => {
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+    });
+    
+    // Параллакс эффект для hero секции
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const heroSection = document.querySelector('.hero-section');
+        if (heroSection) {
+            const rate = scrolled * -0.5;
+            heroSection.style.backgroundPosition = `center ${rate}px`;
+        }
+    });
+    
+    // Инициализация 3D эффекта для мониторов
+    if (typeof VanillaTilt !== 'undefined') {
+        const monitorFrames = document.querySelectorAll('.monitor-frame');
+        monitorFrames.forEach(frame => {
+            VanillaTilt.init(frame, {
+                max: 15,
+                speed: 400,
+                glare: true,
+                'max-glare': 0.2,
+                scale: 1.02
+            });
+        });
+    }
+    
+    // Добавляем индикаторы питания на мониторы
+    const monitorScreens = document.querySelectorAll('.monitor-screen');
+    monitorScreens.forEach((screen, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = 'monitor-indicator';
+        indicator.style.animationDelay = `${index * 0.5}s`;
+        screen.appendChild(indicator);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Контакты с нами</h1>
+
+<div class="contacts">
+  <p>Вы можете связаться с нами по почте: <a href="mailto:foxerzzxgod@gmail.com">sdmgames@gmail.com</a></p>
+  <p>Присоединяйтесь к нашей группе в Telegram: <a href="https://t.me/sdmgames" target="_blank">Наш Telegram канал</a></p>
+</div>
+
+<!-- Секретный механизм: клик в угол -->
+<script>
+  document.addEventListener('click', (e) => {
+    const threshold = 20; // Размер области в углу (пиксели)
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (
+      (e.clientX < threshold && e.clientY < threshold) || // верхний левый угол
+      (e.clientX > width - threshold && e.clientY < threshold) || // верхний правый
+      (e.clientX < threshold && e.clientY > height - threshold) || // нижний левый
+      (e.clientX > width - threshold && e.clientY > height - threshold) // нижний правый
+    ) {
+      window.location.href = '/Beaver';
+    }
+  });
+</script>
+
+<style>
+  .contacts {
+    max-width: 600px;
+    margin: 40px auto;
+    font-size: 18px;
+  }
+  .contacts a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .contacts a:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}

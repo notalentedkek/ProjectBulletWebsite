@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crazy Beaver Clicker & Guns!</title>
+<style>
+  body {
+    background-color: #ffe4b5;
+    font-family: Comic Sans MS, cursive, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    color: #8b4513;
+    font-size: 3em;
+  }
+  #beaver {
+    width: 150px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  #beaver:hover {
+    transform: rotate(10deg) scale(1.1);
+  }
+  #click-area {
+    margin: 20px auto;
+  }
+  #click-btn {
+    padding: 20px 40px;
+    font-size: 2em;
+    background-color: #ff7f50;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff7f50;
+  }
+  #click-btn:active {
+    background-color: #ff6347;
+  }
+
+  /* Guns area */
+  #guns-area {
+    margin-top: 30px;
+  }
+  .gun {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .gun img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #555;
+    transition: transform 0.2s;
+  }
+  .gun img:hover {
+    transform: scale(1.2);
+  }
+
+  /* Upgrades */
+  #upgrades {
+    margin-top: 40px;
+  }
+  button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+  }
+
+  /* Story or status */
+  #story {
+    margin-top: 30px;
+    font-size: 1.2em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<h1>🦫 Crazy Beaver Clicker & Guns! 🔫</h1>
+
+<!-- Beaver character -->
+<img src="https://i.imgur.com/0rYV7tK.png" alt="Beaver" id="beaver" />
+
+<!-- Click to Cook -->
+<div id="click-area">
+  <button id="click-btn">Click to Cook!</button>
+  <p id="progress-text">Progress: 0</p>
+</div>
+
+<!-- Guns -->
+<div id="guns-area">
+  <h2>Guns & Firepower!</h2>
+  <div class="gun" data-gun="Blaster">
+    <img src="https://i.imgur.com/7ZK7NWL.png" alt="Blaster" />
+  </div>
+  <div class="gun" data-gun="Laser">
+    <img src="https://i.imgur.com/2i9FJxK.png" alt="Laser Gun" />
+  </div>
+  <div class="gun" data-gun="Rocket">
+    <img src="https://i.imgur.com/xsYs0Pb.png" alt="Rocket Launcher" />
+  </div>
+</div>
+
+<!-- Upgrades -->
+<div id="upgrades">
+  <h2>Upgrades</h2>
+  <button id="upgrade1">Upgrade 1: Faster Clicks</button>
+  <button id="upgrade2">Upgrade 2: Bigger Oven</button>
+  <button id="upgrade3">Upgrade 3: Spicy Spices</button>
+  <button id="upgrade4">Upgrade 4: Auto Cook</button>
+  <button id="upgrade5">Upgrade 5: Super Stove</button>
+  <button id="upgrade6">Upgrade 6: Turbo Clicks</button>
+  <button id="upgrade7">Upgrade 7: Mega Spatula</button>
+  <button id="upgrade8">Upgrade 8: Fireproof Suit</button>
+  <button id="upgrade9">Upgrade 9: Auto Stir</button>
+  <button id="upgrade10">Upgrade 10: Time Freeze</button>
+</div>
+
+<!-- Story / Status -->
+<div id="story">
+  <h2>Status</h2>
+  <p id="story-text">Once upon a time, a crazy beaver started clicking to cook faster! Unlock upgrades and shoot guns for fun!</p>
+</div>
+
+<script>
+  // Variables
+  let progress = 0;
+  let clickPower = 1;
+  let autoCookEnabled = false;
+  let autoCookInterval = null;
+  const upgrades = [
+    { name: "Faster Clicks", level: 0, max: 3, effect: () => { clickPower += 1; } },
+    { name: "Bigger Oven", level: 0, max: 2, effect: () => { /* maybe increase progress per click */ } },
+    { name: "Spicy Spices", level: 0, max: 5, effect: () => { /* add special effects */ } },
+    { name: "Auto Cook", level: 0, max: 1, effect: () => { if (!autoCookEnabled) { startAutoCook(); } } },
+    { name: "Super Stove", level: 0, max: 2, effect: () => { /* enhance cooking speed */ } },
+    { name: "Turbo Clicks", level: 0, max: 1, effect: () => { clickPower += 2; } },
+    { name: "Mega Spatula", level: 0, max: 3, effect: () => { /* improve cooking quality */ } },
+    { name: "Fireproof Suit", level: 0, max: 1, effect: () => { /* safety upgrade */ } },
+    { name: "Auto Stir", level: 0, max: 2, effect: () => { /* automate stirring */ } },
+    { name: "Time Freeze", level: 0, max: 1, effect: () => { freezeTime(); } },
+  ];
+
+  const progressText = document.getElementById('progress-text');
+  const storyText = document.getElementById('story-text');
+
+  // Click to cook
+  document.getElementById('click-btn').addEventListener('click', () => {
+    progress += clickPower;
+    progressText.innerText = "Progress: " + progress;
+
+    if (progress >= 100) {
+      storyText.innerText = "Yum! The crazy beaver's stew is ready!";
+    }
+    if (progress >= 500) {
+      storyText.innerText = "Say my name";
+    } else {
+      storyText.innerText = "Cooking... Keep clicking!";
+    }
+  });
+
+  // Auto cook function
+  function startAutoCook() {
+    autoCookEnabled = true;
+    autoCookInterval = setInterval(() => {
+      progress += 1;
+      progressText.innerText = "Progress: " + progress;
+      if (progress >= 100) {
+        storyText.innerText = "Yum! The crazy beaver's stew is ready!";
+        clearInterval(autoCookInterval);
+      }
+    }, 1000);
+  }
+
+  // Upgrade buttons
+  upgrades.forEach((u, i) => {
+    document.getElementById(`upgrade${i+1}`).addEventListener('click', () => {
+      if (u.level < u.max) {
+        u.level++;
+        // Apply effects based on upgrade
+        u.effect();
+        // Disable button if maxed
+        if (u.level === u.max) {
+          document.getElementById(`upgrade${i+1}`).disabled = true;
+        }
+      }
+    });
+  });
+
+  // Guns click handlers
+ document.querySelectorAll('.gun').forEach(g => {
+   g.addEventListener('click', () => {
+     const gunName = g.dataset.gun;
+     alert(`Bang! You shot the ${gunName}! Pew Pew!`);
+   });
+ });
+
+ // Freeze time function
+ function freezeTime() {
+   storyText.innerText = "Time is frozen! Everything stops... For now.";
+   // Stop progress temporarily
+   clearInterval(autoCookInterval);
+   setTimeout(() => {
+     storyText.innerText = "Time unfreezes! Keep cooking!";
+     if (autoCookEnabled) startAutoCook();
+   }, 3000);
+ }
+
+</script>
+</body>
+</html>

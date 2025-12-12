@@ -1,0 +1,36 @@
+/* Стили для планет-скриншотов */
+.planet {
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.planet:hover {
+    z-index: 1000 !important;
+}
+
+.planet:hover .planet-surface {
+    transform: scale(1.3) !important;
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(108, 99, 255, 0.9),
+        0 0 100px rgba(108, 99, 255, 0.6) !important;
+}
+
+.planet:hover .planet-surface img {
+    filter: brightness(1.1) contrast(1.2) !important;
+    transform: scale(1.1) !important;
+}
+
+.planet-surface {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.planet-surface img {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    cursor: pointer;
+}
+
+.planet:hover {
+    transform: scale(1.2);
+    z-index: 1000;
+}

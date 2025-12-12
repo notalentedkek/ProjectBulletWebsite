@@ -1,0 +1,539 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="static/css/style2.css">
+	<style>
+        /* Глобальные стили для всего сайта */
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #ff6584;
+            --dark-color: #0f0c29;
+            --medium-color: #302b63;
+            --light-color: #f9f9ff;
+            --accent-color: #36d1dc;
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--medium-color) 50%, #24243e 100%);
+            color: var(--light-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Навигация */
+        .navbar {
+            background: rgba(15, 12, 41, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .navbar.fixed-top {
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--light-color) !important;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: 40px;
+            margin-right: 12px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover img {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.5);
+        }
+
+        .navbar-nav {
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 20px !important;
+            border-radius: 25px;
+            transition: var(--transition) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .nav-link:hover:before {
+            left: 100%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--accent-color) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+        }
+
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .navbar-toggler {
+            border: 2px solid rgba(108, 99, 255, 0.3) !important;
+            padding: 8px 12px;
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:hover {
+            border-color: var(--primary-color) !important;
+            transform: rotate(90deg);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(108, 99, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* Основной контент */
+        .container {
+            max-width: 1400px;
+            padding-top: 100px;
+            padding-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease-out;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .content-container:hover {
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        /* Футер */
+        footer {
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--light-color);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(108, 99, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        /* 3D элементы фона */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.05);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            animation: float 20s infinite linear;
+            filter: blur(1px);
+        }
+
+        .bg-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .bg-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+            animation-duration: 30s;
+            background: rgba(255, 101, 132, 0.05);
+            border-color: rgba(255, 101, 132, 0.1);
+        }
+
+        .bg-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: -10s;
+            animation-duration: 35s;
+            background: rgba(54, 209, 220, 0.05);
+            border-color: rgba(54, 209, 220, 0.1);
+        }
+
+        .bg-element:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 20%;
+            right: 20%;
+            animation-delay: -15s;
+            animation-duration: 40s;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .nav-link {
+                padding: 8px 16px !important;
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding-top: 80px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .content-container {
+                padding: 25px;
+                margin-top: 10px;
+            }
+            
+            .bg-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            
+            .navbar-brand img {
+                height: 32px;
+                width: 32px;
+            }
+            
+            .content-container {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Эффекты скролла */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 12, 41, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 6px;
+            border: 3px solid rgba(15, 12, 41, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+        }
+
+        /* Эффекты для всех страниц */
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+	</style>
+    <title>{% block title %}Project Bullet{% endblock %}</title>
+  </head>
+  <body>
+    <!-- Фоновые элементы -->
+    <div class="bg-elements">
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+      <a class="navbar-brand" href="{{ url_for('main') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" />
+        Project_Bullet
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'main' else '' }}" href="{{ url_for('main') }}">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'About' else '' }}" href="{{ url_for('About') }}">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'Download' else '' }}" href="{{ url_for('Download') }}">Скачать</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'Contact' else '' }}" href="{{ url_for('Contact') }}">Контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/JustANormalThing/Project_Bullet" target="_blank">
+              <i class="fab fa-github"></i> Source Code
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <div class="content-container">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+    
+    <footer>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-left text-center mb-3 mb-md-0">
+            &copy; 2025 Project Bullet(SDM Games). All rights reserved.
+          </div>
+          <div class="col-md-6 text-md-right text-center">
+            <a href="https://t.me/sdmgames" target="_blank" class="social-icon mr-3">
+              <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://github.com/JustANormalThing/Project_Bullet" target="_blank" class="social-icon mr-3">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:contact@projectbullet.com" class="social-icon">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Анимация навигации при скролле
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 50) {
+                $('.navbar').css({
+                    'padding': '10px 0',
+                    'background': 'rgba(15, 12, 41, 0.98)',
+                    'box-shadow': '0 10px 30px rgba(0, 0, 0, 0.3)'
+                });
+            } else {
+                $('.navbar').css({
+                    'padding': '15px 0',
+                    'background': 'rgba(15, 12, 41, 0.95)',
+                    'box-shadow': '0 5px 20px rgba(0, 0, 0, 0.2)'
+                });
+            }
+        });
+
+        // Плавная прокрутка для якорей
+        $(document).ready(function() {
+            $('a.nav-link').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    const hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 70
+                    }, 800);
+                }
+            });
+        });
+
+        // Анимация появления элементов при скролле
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.content-container, .page-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Инициализация анимации
+        document.addEventListener('DOMContentLoaded', function() {
+            // Устанавливаем начальное состояние для анимации
+            const contentContainer = document.querySelector('.content-container');
+            if (contentContainer) {
+                contentContainer.style.opacity = '0';
+                contentContainer.style.transform = 'translateY(30px)';
+                contentContainer.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            }
+
+            // Запускаем анимацию
+            setTimeout(animateOnScroll, 100);
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Анимация для социальных иконок
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.style.transition = 'all 0.3s ease';
+            
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.2)';
+                this.style.color = 'var(--accent-color)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.color = 'var(--light-color)';
+            });
+        });
+
+        // Анимация для фоновых элементов
+        const bgElements = document.querySelectorAll('.bg-element');
+        bgElements.forEach(element => {
+            element.style.animationDelay = `${Math.random() * 20}s`;
+            element.style.animationDuration = `${20 + Math.random() * 20}s`;
+        });
+    </script>
+  </body>
+</html>
